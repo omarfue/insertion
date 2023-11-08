@@ -1,0 +1,31 @@
+ALGORITHM insertion_sort
+VAR
+   array: ARRAY OF INTEGER;
+   array_length: INTEGER;
+   index: INTEGER;
+   temp: INTEGER;
+
+BEGIN
+   Read(array_length);
+
+   FOR i FROM 1 TO array_length DO
+     Read(array[i]);
+   END FOR;
+
+   FOR index FROM 2 TO array_length DO
+     temp := array[index];
+     j := index - 1;
+
+     WHILE j >= 0 AND array[j] > temp DO
+         array[j+1] := array[j];
+         j := j - 1;
+     END WHILE;
+
+     array[j+1] := temp;
+   END FOR;
+
+   -- Display the sorted array
+   FOR i FROM 1 TO array_length DO
+     Write(array[i]);
+   END FOR;
+END
